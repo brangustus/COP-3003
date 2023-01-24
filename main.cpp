@@ -127,7 +127,7 @@ int dropLowest() {
 }
 */
 
-
+//i could take the first value and check or swap and if it is == or larger then add to the array.
 
 
 
