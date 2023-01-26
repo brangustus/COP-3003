@@ -25,27 +25,18 @@ int const QUIZES = 11;
 //Functions
 int getGrade();
 int getLetterGrade();
-//int dropLowest();
+int dropLowest();
 //______________________________________________________________________________________________________________________
 double totalScore = 0; //I don't really know where to put these, I don't think I'm supposed to have them out here though
 double grades[10] = {};// my array for storing inputs
-//int lowestScore = 0;
 
 ///main function: introduction & calls to other functions
 int main() {
     cout << "This is a grade calculator." << std::endl;
     cout << "Please enter your quiz grades below and a Letter Grade will be assigned to you." << std::endl << std::endl;
     getGrade();
+    dropLowest();
     getLetterGrade();
-    //dropLowest();
-    double min = grades[0];
-    // search num in inputArray from index 0 to elementCount-1
-    for(int i = 0; i < QUIZES; i++){
-        if(grades[i] < min){
-            min = grades[i];
-        }
-    }
-    cout  << "Minimum Element\n" << min;
 
     return 0;
 }
@@ -58,10 +49,8 @@ int getGrade() {
         cout <<
              "-------------------------------------------------------------------------------------------"
              << std::endl;
-        if (grades[i] >= 0 and grades[i] <= 100)
-        {
-            trunc(grades[i]);
-            totalScore = totalScore + grades[i];
+        if (grades[i] >= 0 and grades[i] <= 100){
+            totalScore = totalScore + trunc(grades[i]);
         }
         else                                    // in the case of an invalid input, don't exit the loop.
         {
@@ -76,7 +65,7 @@ int getGrade() {
 
 ///calculate and print the final letter grade based on the entered quiz grades.
 int getLetterGrade() {
-    float finalGrade = trunc(totalScore/QUIZES);
+    float finalGrade = trunc(totalScore/(QUIZES-1));
     cout << "Your final grade is: " << finalGrade << std::endl;
     if (finalGrade >= 90){
         cout << "Your letter grade is an A";
@@ -99,35 +88,22 @@ int getLetterGrade() {
 
     return 2;
 }
-
-/*
-int dropLowest() {
-    int lowestScore = grades[0];
-    for (int i = 0; i<=1000; i++) {                // loop to get grade values from user.
-    if (grades[i] >= grades[i+1]) {
-        lowestScore = grades[i];
-    }
-    else {
-        lowestScore = grades[i];
-    }
-    }
-    cout << std::endl << "lowest score is " << lowestScore;
-    return 3;
-}
-*/
-/*
-int dropLowest() {
-    int smallest = INT_MAX;
-    for (int i = 0; i < grades_length; i++) {
-        if (grades[i] < smallest) {
-            smallest = grades[i];
+int dropLowest(){
+    double lowestScore = grades[0];
+    // search num in inputArray from index 0 to elementCount-1
+    for(int i = 0; i < QUIZES; i++){
+        if(grades[i] < lowestScore){
+            lowestScore = grades[i];
         }
     }
+    cout << "Lowest Score: " << lowestScore << std::endl;
 
+    for(int i = 0; i < QUIZES; i++){
+        if (lowestScore == grades[i]){
+            grades[i]=0;
+            lowestScore = 0;
+            i+=11;
+        }
+    }
+    return 3;
 }
-*/
-
-//i could take the first value and check or swap and if it is == or larger then add to the array.
-
-
-
