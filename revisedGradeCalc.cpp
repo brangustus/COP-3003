@@ -13,9 +13,8 @@
 
 #include <iostream>
 #include <cmath>
-#include <array>
 #include <iterator>
-#include "cmake-build-debug/gradefunction.h"
+#include "cmake-build-debug/calcFunctions.h"
 
 using std::cout;
 using std::cin;
@@ -45,7 +44,7 @@ int main() {
         double lowestScore = dropLowest(); //get lowestScore in main
         printGradeSummary(lowestScore,finalGrade,letterGrade); //print grade info
 
-        getStudentInfo(student);
+        getStudentInfo(student,letterGrade,finalGrade);
         //std::string fullName = getStudentInfo(letterGrade, finalGrade);
         printFinalMessage(student);
 
