@@ -19,8 +19,8 @@ const int CRIT_HIT_ROLL = 20;
 const int MIN_HIT_ROLL = 5;
 //______________________________________________________________________________________________________________________
 //Arrays
-std::array <std::string, 10> names;
-std::array <std::string, 5> party;
+//std::array <std::string, 10> names;
+//std::array <std::string, 5> party;
 //______________________________________________________________________________________________________________________
 //Structures
 

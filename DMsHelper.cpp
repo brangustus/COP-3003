@@ -18,6 +18,7 @@ using std::cin;
 using std::endl;
 using std::trunc;
 
+
 ///main function: introduction & calls to other functions
 int main()
 {
@@ -100,30 +101,23 @@ int main()
         }
     }while (menuSelection != 0);
     endingScreen();
+    
+    ///experimental zone
 
-    //expiremental zone
+    Character game1;
+    game1.getCharacterName();
+    cout <<
+    game1.party[0]<<" "<<game1.party[1]<<" "<< game1.party[2]<<" "<< game1.party[3]<<" "<< game1.party[4];
+    cout << endl << "_________________________________________________________________________________________________";
 
-//make function
-//
-//    for (int i=1;i<=10;i++){
-//        Character player[i];
-//        cout << endl <<"Enter name for player " << i << ":";
-//        //std::string nameP[i] = " ";
-//        cin >> names[i];
-//
-//        //player[i].name = names[i];
-//        //cout << player[i].name;
-//        cout << names[i] << endl;
-//    }
+    game1.getCharacterAge();
+    cout <<
+         game1.ages[0]<<" "<<game1.ages[1]<<" "<< game1.ages[2]<<" "<< game1.ages[3]<<" "<< game1.ages[4];
+    cout << endl << "_________________________________________________________________________________________________";
+    raceAndClassMod.raceSelection();
+    cout << raceAndClassMod.strMod;
 
-//    cout << "Enter the first characters name: ";
-//    std::string nameP1 = " ";
-//    cin >> nameP1;
-//
-//    player1.name = nameP1;
-//    cout << player1.name;
-    Character player1;
-    player1.getCharacterName();
+
 
     return 0;
 }
