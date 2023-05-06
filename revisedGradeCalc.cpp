@@ -44,10 +44,15 @@ int main() {
         double lowestScore = dropLowest(); //get lowestScore in main
         printGradeSummary(lowestScore,finalGrade,letterGrade); //print grade info
 
-        getStudentInfo(student,letterGrade,finalGrade);
-        //std::string fullName = getStudentInfo(letterGrade, finalGrade);
-        printFinalMessage(student);
+        //class initialization
+        student new_student;
+        //class functions
+        new_student.get_first_name(new_student);
+        new_student.get_last_name(new_student);
+        new_student.get_grade_level();
+        new_student.get_major();
 
+        printFinalMessage(new_student);
 
         cout << endl << endl <<"would you like to continue grading? \n";
         cout << "(yes=1 or no=0): ";
@@ -59,7 +64,6 @@ int main() {
             loopCondition = 1;
         }
         else if (gradeMore == 0){
-           //int quit=0
             quitGrading(quit,loopCondition);
         }
     }while (loopCondition != 0);

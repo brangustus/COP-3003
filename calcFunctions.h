@@ -32,7 +32,7 @@ int getGrades(int& quit, int& loopCondition) {
         cout <<
              "-------------------------------------------------------------------------------------------"
              << endl;
-        if (grades[i] >= 0 and grades[i] <= 100){
+        if (grades[i] >= 0 && grades[i] <= 100){
             cout << "...grade entered...";
             cout << endl << endl;
         }
@@ -40,6 +40,7 @@ int getGrades(int& quit, int& loopCondition) {
         {
             if (grades[i]<0 || grades[i]>100){
                 cout << "that is an invalid grade range. Please try again" << std::endl << std::endl;
+                grades[i]=0;
                 i-=1;
             }
         }
@@ -116,18 +117,9 @@ void printGradeSummary(double& lowestScore ,int& finalGrade, std::string& letter
          << endl << endl;
 }
 
-void getStudentInfo(Student,std::string& letterGrade,int& finalGrade){
-    cout << "enter student grade level: ";
-    cin >> student.grade_level;
-    cout << endl;
-    cout << "enter student's name: ";
-    cin >> student.first_name >> student.last_name;
-    cout << endl;
-    student.final_letter_grade = letterGrade;
-    student.final_grade = finalGrade;
+void printFinalMessage(student new_student) {
+    cout << "\nThank you " << new_student.first_name +" "+new_student.last_name << ", the final grade for the semester is a(n) "
+    << new_student.final_letter_grade << " at " << new_student.final_grade <<"%";
+    cout << "\nyour major is: " << new_student.major << "\nyour grade level is: " << new_student.grade_level;
 }
 
-void printFinalMessage(Student) {
-    cout << "Thank you " << student.first_name +" "+student.last_name << ", the final grade for the semester is a(n) "
-    << student.final_letter_grade << " at " << student.final_grade <<"%";
-}
